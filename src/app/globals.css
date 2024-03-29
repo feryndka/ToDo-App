@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.App {
+  text-align: center;
+  width: 100vw;
+  min-height: 100vh;
+}
+
+.app-title-container {
+  padding: 25px;
+  margin: 0 auto 15px auto;
+  border-radius: 8px;
+}
+.lightMode-app-title-container {
+  background-color: #ffffff;
+}
+.darkMode-app-title-container {
+  background-color: #444;
+}
+
+.app-title {
+  font-weight: bold;
+}
+
+.darkMode-App {
+  background-color: #333;
+  color: #fff;
+}
+.lightMode-App {
+  background-color: #e7e7e7;
+}
+
+.check-sun-btn,
+.check-moon-btn {
+  padding-top: 4.5px;
+  padding-left: 6px;
+}
