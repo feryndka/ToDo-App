@@ -9,7 +9,7 @@ export default function Home() {
   const [dark, setDark] = useState(true);
 
   useEffect(() => {
-    let myTodo = localStorage.getItem("myTodoTasks");
+    let myTodo = localStorage.getItem("Todo-List");
     if (myTodo) {
       setTasks(JSON.parse(myTodo));
     }
@@ -24,7 +24,7 @@ export default function Home() {
             : "lightMode-app-title-container"
         } app-title-container`}
       >
-        <h1 className="app-title">ToDo App</h1>
+        <h1 className="app-title">ToDo App 🚀</h1>
       </div>
       <Switch
         checked={dark}

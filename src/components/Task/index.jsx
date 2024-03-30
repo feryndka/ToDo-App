@@ -2,6 +2,9 @@ import "./Task.css";
 import { MdDoneAll } from "react-icons/md";
 import { GoTrash } from "react-icons/go";
 
+import { confirmAlert } from "react-confirm-alert"; // Import
+import "react-confirm-alert/src/react-confirm-alert.css"; // Import css
+
 const Task = ({ task, tasks, setTasks, index, dark }) => {
   const handleComplete = (e) => {
     e.preventDefault();
@@ -19,7 +22,31 @@ const Task = ({ task, tasks, setTasks, index, dark }) => {
     let newTasks = [...tasks];
     newTasks.splice(index, 1);
     setTasks(newTasks);
-    saveToLocal("myTodoTask", newTasks);
+    saveToLocal("Todo-List", newTasks);
+  };
+
+  const handleDelete = (e) => {
+    e.preventDefault();
+    confirmAlert({
+      customUI: ({ onClose }) => {
+        const handleClick = (e) => {
+          handleRemove(e);
+          onClose();
+        };
+        
+        return (
+          <div className="alert-box">
+            <h1 className="alert-text">Are you sure to delete this task?</h1>
+            <button className="alert-button" onClick={onClose}>
+              No
+            </button>
+            <button className="alert-button" onClick={handleClick}>
+              Yes
+            </button>
+          </div>
+        );
+      },
+    });
   };
 
   return (
@@ -67,7 +94,7 @@ const Task = ({ task, tasks, setTasks, index, dark }) => {
           } box-task-remove ${
             dark ? "darkMode-task-btn" : "lightMode-task-btn"
           } box-task-btn`}
-          onClick={(e) => handleRemove(e)}
+          onClick={(e) => handleDelete(e)}
         >
           <GoTrash size={20} />
         </button>

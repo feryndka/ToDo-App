@@ -17,7 +17,7 @@ const TaskContainer = ({ tasks, setTasks, dark }) => {
       let newTasks = [...tasks, newTask];
       setTasks(newTasks);
       setTodo({ title: "", description: "", completed: false });
-      localStorage.setItem("myTodoTasks", JSON.stringify(newTasks));
+      localStorage.setItem("Todo-List", JSON.stringify(newTasks));
     }
   };
 
